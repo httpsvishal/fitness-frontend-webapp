@@ -12,7 +12,11 @@ const router = createBrowserRouter(
     {
       path: '/welcome',
       element: <WelcomePage />,
-    },
+    }
+    ,{
+      path: '*',
+      element: <HomePage />,
+    }
   ],
   {
     future: {
