@@ -1,5 +1,4 @@
 import { useState } from "react";
-import res from "../../res";
 import MorningRoutine from "../../components/MorningRoutine";
 import Meals from "../../components/Meals";
 import ExercisePlan from "../../components/ExcercisePlan";
@@ -7,9 +6,14 @@ import EveningRoutine from "../../components/EveningRoutine";
 import Sleep from "../../components/Sleep";
 import Hydration from "../../components/Hydration";
 import AdditionalTips from "../../components/AdditionalTips";
+import { useSelector } from "react-redux";
+
+
 
 
 const WelcomePage = () => {
+    let res = useSelector((state) => state.user.healthPlan);
+    console.log(res);
     const [activeSection, setActiveSection] = useState("morning-routine");
     return (
         <div className=" bg-gray-100 min-h-screen text-gray-800 font-sans">

@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { setUser } from '../redux/userslice';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+
+    const dispatch = useDispatch();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -25,6 +29,7 @@ const Login = () => {
         const data = await response.json();
         console.log(data);
         if (data.message === 'Login successful') {
+            dispatch(setUser(data.user));
             navigate('/welcome');
         }
         else{

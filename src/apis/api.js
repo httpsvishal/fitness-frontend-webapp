@@ -1,6 +1,6 @@
 export const signup = async (user) => {
     try {
-        const response = await fetch('https://fitnessbackend-1-0cjt.onrender.com/api/auth/register',
+        const response = await fetch('http:///localhost:8000/api/auth/register',
             {
                 method: 'POST',
                 headers: {
